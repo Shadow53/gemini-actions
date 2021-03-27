@@ -1,0 +1,13 @@
+name: Convert Gemini to HTML (gmi-web)
+author: Michael Bryant (Shadow53)
+description: Use gmi-web to convert Gemini .gmi files to HTML
+inputs:
+    config_file:
+        description: Path to the (optional) configuration file
+        required: false
+    css_file:
+        description: Path to the (optional) CSS file
+        required: false
+runs:
+    using: docker
+    image: Dockerfile

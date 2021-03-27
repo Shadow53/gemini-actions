@@ -1,0 +1,6 @@
+name: Generate Gemini Files (gssg)
+author: Michael Bryant (Shadow53)
+description: Use gssg to generate a Gemini website.
+runs:
+    using: docker
+    image: Dockerfile

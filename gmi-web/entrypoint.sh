@@ -11,3 +11,7 @@ if [ -n "$INPUT_CSS_FILE" ]; then
 fi
 
 gmi-web $args $(find . -name '*.gmi')
+
+if [ -n "$INPUT_DELETE_GMI" ] && [ "$INPUT_DELETE_GMI" = "true" ]; then
+    find . -name '*.gmi' -delete
+fi

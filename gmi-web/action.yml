@@ -8,6 +8,10 @@ inputs:
     css_file:
         description: Path to the (optional) CSS file
         required: false
+    delete_gmi:
+        description: Whether to delete the .gmi files used to generate HTML
+        required: false
+        default: "false"
 runs:
     using: docker
     image: Dockerfile

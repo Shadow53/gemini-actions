@@ -1,5 +1,10 @@
 #!/bin/sh
 
+die() {
+    echo "$@" 1>&2
+    exit 1
+}
+
 args=""
 
 if [ -n "$INPUT_CONFIG_FILE" ]; then
@@ -10,8 +15,12 @@ if [ -n "$INPUT_CSS_FILE" ]; then
     args="$args --css $INPUT_CSS_FILE"
 fi
 
-gmi-web $args $(find . -name '*.gmi')
+if ! gmi-web $args $(find . -name '*.gmi'); then
+    die "failed to generate HTML files"
+fi
 
 if [ -n "$INPUT_DELETE_GMI" ] && [ "$INPUT_DELETE_GMI" = "true" ]; then
-    find . -name '*.gmi' -delete
+    if ! find . -name '*.gmi' -delete; then
+        die "failed to delete GMI files"
+    fi
 fi
